@@ -1,0 +1,3 @@
+rootProject.name = 'HouseFinder'
+
+includeFlat 'JPAHouses'
