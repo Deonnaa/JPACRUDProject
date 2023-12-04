@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.skilldistillery.houses.entities.house.House;
+import com.skilldistillery.houses.entities.House;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -18,7 +18,7 @@ import jakarta.persistence.Persistence;
 class HouseTest {
 	private static EntityManagerFactory emf;
 	private static EntityManager em;
-	private House House;
+	private House house;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,13 +33,13 @@ class HouseTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		House = em.find(House.class, 1);
+		house = em.find(House.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		House = null;
+		house = null;
 	}
 
 //	@Test
@@ -49,8 +49,8 @@ class HouseTest {
 
 	@Test
 	void test_Customer_basic_mappings() {
-		assertNotNull(House);
-		assertEquals("CA", House.getState());
+		assertNotNull(house);
+		assertEquals("CA", house.getState());
 
 	}
 
